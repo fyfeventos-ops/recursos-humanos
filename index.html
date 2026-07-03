@@ -13,7 +13,7 @@
             font-family: sans-serif;
         }
 
-        /* FONDO EXCLUSIVO CON ONDAS NEÓN EN MOVIMIENTO */
+        /* FONDO EXCLUSIVO CON MARCA DE AGUA (GIF 1) Y ONDAS NEÓN */
         body {
             min-height: 100vh;
             display: flex;
@@ -26,32 +26,58 @@
             overflow-x: hidden;
         }
 
-        body::before, body::after {
+        /* Capa para la marca de agua del Gif 1.gif (ultra sutil) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Gif 1.gif');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.04; /* Opacidad bajísima para que actúe como marca de agua discreta */
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Capa para los destellos neón de fondo */
+        .neon-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .neon-bg::before, .neon-bg::after {
             content: '';
             position: absolute;
             width: 600px;
             height: 600px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 150, 255, 0.25) 0%, rgba(0,0,0,0) 70%);
-            z-index: 0;
+            background: radial-gradient(circle, rgba(0, 150, 255, 0.2) 0%, rgba(0,0,0,0) 70%);
             animation: floatLights 12s ease-in-out infinite alternate;
         }
 
-        body::after {
-            background: radial-gradient(circle, rgba(128, 0, 255, 0.15) 0%, rgba(0,0,0,0) 70%);
+        .neon-bg::after {
+            background: radial-gradient(circle, rgba(128, 0, 255, 0.12) 0%, rgba(0,0,0,0) 70%);
             animation-delay: -6s;
             right: -100px;
             top: -100px;
         }
 
-        body::before {
+        .neon-bg::before {
             left: -100px;
             bottom: -100px;
         }
 
         @keyframes floatLights {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(80px, 50px) scale(1.2); }
+            100% { transform: translate(80px, 50px) scale(1.1); }
         }
 
         .main-container {
@@ -79,14 +105,14 @@
             font-size: 2.4rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            font-weight: 900; /* Letras bien gruesas */
+            font-weight: 900;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .top-banner .subtitle {
             color: #00ffcc;
             font-size: 1.6rem;
-            font-weight: 900; /* Letras bien gruesas */
+            font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 5px;
@@ -98,7 +124,7 @@
             width: 100%;
         }
 
-        /* CUADRO BOLSA DE TRABAJO CON ICONOS SENCILLOS */
+        /* CUADRO BOLSA DE TRABAJO */
         .work-section {
             flex: 1.7;
             background: rgba(255, 255, 255, 0.04);
@@ -119,7 +145,7 @@
         .req-item-large {
             display: flex;
             align-items: center;
-            background: rgba(0, 0, 0, 0.15);
+            background: rgba(0, 0, 0, 0.25);
             padding: 15px 20px;
             border-radius: 15px;
             border-left: 4px solid #00ffcc;
@@ -210,32 +236,19 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        /* SECCIÓN CRÉDITOS JULY3P */
+        /* SECCIÓN CRÉDITOS */
         .ads-loan-box {
             position: relative;
-            background-image: url('https://media.tenor.com/E8w96ZWeG-EAAAAC/pension-por-discapacidad-pesos-argentinos.gif');
             background-size: cover;
             background-position: center;
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 24px;
-            padding: 40px 25px;
+            padding: 30px 20px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-            min-height: 280px;
-            display: flex;
-            align-items: flex-end;
-        }
-
-        .ads-loan-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%);
-            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .ads-loan-content {
@@ -258,6 +271,22 @@
             font-size: 2.2rem;
             font-weight: 900;
             margin-bottom: 20px;
+        }
+
+        /* CONTENEDOR PARA FOTO 2 Y GIF 3 ANTES DEL BOTÓN */
+        .loan-gifs-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .loan-gifs-container img {
+            width: 47%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .btn-loan-action {
@@ -358,7 +387,7 @@
             width: 100%;
         }
 
-        /* Reproductor Fijo */
+        /* REPRODUCTOR FIJO */
         .audio-player {
             position: fixed;
             bottom: 20px;
@@ -387,7 +416,7 @@
 
         .track-info { color: #ffffff; font-size: 0.85rem; }
 
-        /* OPTIMIZACIÓN EXCLUSIVA PARA CELULARES (MÓVIL) */
+        /* OPTIMIZACIÓN EXCLUSIVA PARA CELULARES */
         @media (max-width: 850px) {
             .row-content {
                 flex-direction: column;
@@ -406,7 +435,6 @@
             .work-section {
                 padding: 20px 15px;
             }
-            /* Junta todo reduciendo el margen y espaciado de los bloques */
             .requirements-large {
                 gap: 10px;
             }
@@ -429,6 +457,9 @@
                 font-size: 1.15rem;
                 padding: 14px 20px;
             }
+            .loan-gifs-container img {
+                height: 85px;
+            }
             .audio-player {
                 left: 50%;
                 transform: translateX(-50%);
@@ -439,6 +470,8 @@
     </style>
 </head>
 <body>
+
+    <div class="neon-bg"></div>
 
     <audio id="audioTrack" loop preload="auto">
         <source src="musica.mp3" type="audio/mpeg">
@@ -493,6 +526,12 @@
                     <div class="ads-loan-content">
                         <div class="ads-loan-title">CREDITOS PERSONALES</div>
                         <div class="ads-loan-amount">HASTA $3.000.000</div>
+                        
+                        <div class="loan-gifs-container">
+                            <img src="foto 2.gif" alt="Crédito Info 1">
+                            <img src="gif 3.gif" alt="Crédito Info 2">
+                        </div>
+
                         <button class="btn-loan-action" onclick="abrirModal('loanModal')">
                             QUIERO MI PRESTAMO
                         </button>
