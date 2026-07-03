@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FYF Eventos - Bolsa de Trabajo</title>
+    <title>FYF Eventos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: sans-serif;
         }
 
         body {
@@ -22,8 +22,6 @@
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             padding: 20px;
-            overflow-x: hidden;
-            position: relative;
         }
 
         @keyframes gradientBG {
@@ -33,56 +31,46 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.07);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 24px;
-            padding: 40px 30px;
-            max-width: 500px;
+            border-radius: 20px;
+            padding: 35px 25px;
+            max-width: 450px;
             width: 100%;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            animation: fadeIn 1s ease-out;
-            z-index: 1;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
             color: #ffffff;
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-size: 2.3rem;
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             text-transform: uppercase;
-            text-shadow: 0 0 15px rgba(255,255,255,0.2);
         }
 
         .subtitle {
             color: #00ffcc;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: bold;
             text-transform: uppercase;
-            margin-bottom: 35px;
-            letter-spacing: 1px;
+            margin-bottom: 30px;
         }
 
         .requirements {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             text-align: left;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.25);
             padding: 20px;
-            border-radius: 16px;
+            border-radius: 12px;
         }
 
         .req-item {
             display: flex;
             align-items: center;
-            color: #e0e0e0;
+            color: #ffffff;
             font-size: 1.1rem;
             margin-bottom: 15px;
         }
@@ -94,14 +82,16 @@
         .req-item i {
             color: #00ffcc;
             margin-right: 15px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
         }
 
         .cta-text {
             color: #ffffff;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         .btn-whatsapp {
@@ -109,119 +99,72 @@
             align-items: center;
             justify-content: center;
             background: #25D366;
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            padding: 16px 32px;
+            padding: 15px 30px;
             border-radius: 50px;
             font-size: 1.2rem;
-            font-weight: 700;
+            font-weight: bold;
             width: 100%;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s, background 0.2s;
         }
 
         .btn-whatsapp i {
-            font-size: 1.6rem;
-            margin-right: 12px;
+            font-size: 1.5rem;
+            margin-right: 10px;
         }
 
         .btn-whatsapp:hover {
             background: #20ba5a;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
+            transform: translateY(-2px);
         }
 
         .audio-player {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px 18px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
             border-radius: 30px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-
-        .audio-player:hover {
-            background: rgba(0, 0, 0, 0.8);
-            transform: scale(1.03);
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
         }
 
         .play-btn {
             background: #00ffcc;
             border: none;
-            width: 36px;
-            height: 36px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            color: #111;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-
-        .play-btn:hover {
-            background: #00d4aa;
+            color: #000000;
         }
 
         .track-info {
-            color: #fff;
+            color: #ffffff;
             font-size: 0.85rem;
-            font-weight: 500;
-            user-select: none;
-        }
-
-        .sound-wave {
-            display: flex;
-            align-items: flex-end;
-            gap: 2px;
-            height: 14px;
-        }
-
-        .sound-wave span {
-            width: 3px;
-            background: #00ffcc;
-            border-radius: 2px;
-            animation: bounce 1s ease infinite alternate;
-            animation-play-state: paused;
-        }
-
-        .sound-wave.playing span {
-            animation-play-state: running;
-        }
-
-        .sound-wave span:nth-child(2) { animation-delay: 0.2s; height: 60%; }
-        .sound-wave span:nth-child(3) { animation-delay: 0.4s; height: 100%; }
-        .sound-wave span:nth-child(4) { animation-delay: 0.1s; height: 40%; }
-
-        @keyframes bounce {
-            0% { height: 20%; }
-            100% { height: 100%; }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            .card { padding: 30px 20px; }
-            .req-item { font-size: 1rem; }
-            .cta-text { font-size: 1.1rem; }
-            .audio-player { left: 50%; transform: translateX(-50%); right: auto; width: max-content; }
-            .audio-player:hover { transform: translateX(-50%) scale(1.03); }
+            .audio-player {
+                left: 50%;
+                transform: translateX(-50%);
+                right: auto;
+                bottom: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <audio id="bg-music" loop>
+    <audio id="audioTrack" loop preload="auto">
         <source src="musica.mp3" type="audio/mpeg">
-        <source src="musica.MP3" type="audio/mpeg">
     </audio>
 
     <div class="card">
@@ -251,51 +194,34 @@
     </div>
 
     <div class="audio-player">
-        <button class="play-btn" id="play-button" onclick="toggleMusic()">
-            <i class="fas fa-play" id="play-icon"></i>
+        <button class="play-btn" onclick="controlMusica()">
+            <i class="fas fa-play" id="btnIcon"></i>
         </button>
         <span class="track-info">Va por vos pagina</span>
-        <div class="sound-wave" id="wave">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
     </div>
 
     <script>
-        const music = document.getElementById('bg-music');
-        const playButton = document.getElementById('play-button');
-        const playIcon = document.getElementById('play-icon');
-        const wave = document.getElementById('wave');
+        const reproductor = document.getElementById('audioTrack');
+        const icono = document.getElementById('btnIcon');
 
-        // Intenta reproducir automáticamente al interactuar con cualquier zona de la pantalla
+        // Intenta tocar música al hacer click en cualquier parte por si Chrome lo permite
         document.body.addEventListener('click', () => {
-            if (music.paused && !music.classList.contains('manually-paused')) {
-                playMusic();
+            if (reproductor.paused && !reproductor.classList.contains('pausa-manual')) {
+                reproductor.play().then(() => {
+                    icono.className = "fas fa-pause";
+                }).catch(e => console.log("Click requerido en el botón Play"));
             }
         }, { once: true });
 
-        function toggleMusic() {
-            if (music.paused) {
-                playMusic();
+        function controlMusica() {
+            if (reproductor.paused) {
+                reproductor.play();
+                icono.className = "fas fa-pause";
             } else {
-                pauseMusic();
-                music.classList.add('manually-paused');
+                reproductor.pause();
+                icono.className = "fas fa-play";
+                reproductor.classList.add('pausa-manual');
             }
-        }
-
-        function playMusic() {
-            music.play().then(() => {
-                playIcon.className = "fas fa-pause";
-                wave.classList.add('playing');
-            }).catch(e => console.log("Autoplay bloqueado. Requiere interacción del usuario."));
-        }
-
-        function pauseMusic() {
-            music.pause();
-            playIcon.className = "fas fa-play";
-            wave.classList.remove('playing');
         }
     </script>
 
