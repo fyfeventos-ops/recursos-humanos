@@ -13,7 +13,7 @@
             font-family: sans-serif;
         }
 
-        /* FONDO EXCLUSIVO CON MARCA DE AGUA (GIF 1) Y ONDAS NEÓN */
+        /* FONDO CON MARCA DE AGUA (GIF 1) Y EFECTO PRO */
         body {
             min-height: 100vh;
             display: flex;
@@ -26,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* Capa para la marca de agua del Gif 1.gif (ultra sutil) */
+        /* Capa para la marca de agua del Gif 1.gif */
         body::before {
             content: '';
             position: fixed;
@@ -37,12 +37,12 @@
             background-image: url('Gif 1.gif');
             background-size: cover;
             background-position: center;
-            opacity: 0.04; /* Opacidad bajísima para que actúe como marca de agua discreta */
+            opacity: 0.04; /* Ajuste sutil para el estilo marca de agua */
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Capa para los destellos neón de fondo */
+        /* Destellos neón de fondo */
         .neon-bg {
             position: fixed;
             top: 0;
@@ -87,7 +87,7 @@
             width: 100%;
         }
 
-        /* TITULO CON LETRAS BIEN GRUESAS */
+        /* BANNER DE TITULO MÁXIMO GROSOR */
         .top-banner {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
@@ -124,7 +124,7 @@
             width: 100%;
         }
 
-        /* CUADRO BOLSA DE TRABAJO */
+        /* SECCIÓN BOLSA DE TRABAJO */
         .work-section {
             flex: 1.7;
             background: rgba(255, 255, 255, 0.04);
@@ -177,7 +177,7 @@
             gap: 25px;
         }
 
-        /* CAJA BOTÓN ENVIAR CV */
+        /* CAJA BOTONES DE CONTACTO */
         .whatsapp-box {
             background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(20px);
@@ -236,19 +236,40 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        /* SECCIÓN CRÉDITOS */
+        /* CONTENEDOR DE GIFS BAJO EL BOTÓN MÁS INFORMACIÓN */
+        .work-gifs-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .work-gifs-container img {
+            width: 48%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* SECCIÓN CRÉDITOS LIMPIA */
         .ads-loan-box {
             position: relative;
             background-size: cover;
             background-position: center;
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 24px;
-            padding: 30px 20px;
+            padding: 40px 25px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             background-color: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .ads-loan-content {
@@ -271,22 +292,6 @@
             font-size: 2.2rem;
             font-weight: 900;
             margin-bottom: 20px;
-        }
-
-        /* CONTENEDOR PARA FOTO 2 Y GIF 3 ANTES DEL BOTÓN */
-        .loan-gifs-container {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .loan-gifs-container img {
-            width: 47%;
-            height: 110px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .btn-loan-action {
@@ -416,7 +421,7 @@
 
         .track-info { color: #ffffff; font-size: 0.85rem; }
 
-        /* OPTIMIZACIÓN EXCLUSIVA PARA CELULARES */
+        /* OPTIMIZACIÓN MÓVIL */
         @media (max-width: 850px) {
             .row-content {
                 flex-direction: column;
@@ -457,7 +462,7 @@
                 font-size: 1.15rem;
                 padding: 14px 20px;
             }
-            .loan-gifs-container img {
+            .work-gifs-container img {
                 height: 85px;
             }
             .audio-player {
@@ -520,18 +525,17 @@
                     <button class="btn-info-large" onclick="abrirModal('infoModal')">
                         <i class="fas fa-info-circle"></i> Más información
                     </button>
+
+                    <div class="work-gifs-container">
+                        <img src="foto 2.gif" alt="Info Trabajo 1">
+                        <img src="gif 3.gif" alt="Info Trabajo 2">
+                    </div>
                 </div>
 
                 <div class="ads-loan-box">
                     <div class="ads-loan-content">
                         <div class="ads-loan-title">CREDITOS PERSONALES</div>
                         <div class="ads-loan-amount">HASTA $3.000.000</div>
-                        
-                        <div class="loan-gifs-container">
-                            <img src="foto 2.gif" alt="Crédito Info 1">
-                            <img src="gif 3.gif" alt="Crédito Info 2">
-                        </div>
-
                         <button class="btn-loan-action" onclick="abrirModal('loanModal')">
                             QUIERO MI PRESTAMO
                         </button>
