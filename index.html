@@ -6,7 +6,6 @@
     <title>FYF Eventos - Bolsa de Trabajo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset de estilos básico */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +13,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Fondo animado dinámico */
         body {
             min-height: 100vh;
             display: flex;
@@ -34,7 +32,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Contenedor Principal (Efecto Cristal/Glassmorphism) */
         .card {
             background: rgba(255, 255, 255, 0.07);
             backdrop-filter: blur(12px);
@@ -55,7 +52,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Título Principal */
         h1 {
             color: #ffffff;
             font-size: 2.5rem;
@@ -75,7 +71,6 @@
             letter-spacing: 1px;
         }
 
-        /* Sección de Preguntas / Requisitos */
         .requirements {
             margin-bottom: 40px;
             text-align: left;
@@ -102,7 +97,6 @@
             font-size: 1.3rem;
         }
 
-        /* Texto de llamado a la acción */
         .cta-text {
             color: #ffffff;
             font-size: 1.3rem;
@@ -110,7 +104,6 @@
             margin-bottom: 25px;
         }
 
-        /* Botón de WhatsApp Premium */
         .btn-whatsapp {
             display: inline-flex;
             align-items: center;
@@ -138,7 +131,6 @@
             box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
         }
 
-        /* Reproductor de Música Flotante y Estético */
         .audio-player {
             position: fixed;
             bottom: 20px;
@@ -187,7 +179,6 @@
             user-select: none;
         }
 
-        /* Animación de barritas de sonido cuando suena */
         .sound-wave {
             display: flex;
             align-items: flex-end;
@@ -216,7 +207,6 @@
             100% { height: 100%; }
         }
 
-        /* Adaptabilidad para Pantallas Pequeñas */
         @media (max-width: 480px) {
             h1 { font-size: 2rem; }
             .card { padding: 30px 20px; }
@@ -229,7 +219,10 @@
 </head>
 <body>
 
-    <audio id="bg-music" src="musica.mp3" loop></audio>
+    <audio id="bg-music" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+        <source src="musica.MP3" type="audio/mpeg">
+    </audio>
 
     <div class="card">
         <h1>FYF Eventos</h1>
@@ -276,7 +269,7 @@
         const playIcon = document.getElementById('play-icon');
         const wave = document.getElementById('wave');
 
-        // Intenta reproducir automáticamente al primer clic que haga el usuario en la página
+        // Intenta reproducir automáticamente al interactuar con cualquier zona de la pantalla
         document.body.addEventListener('click', () => {
             if (music.paused && !music.classList.contains('manually-paused')) {
                 playMusic();
@@ -288,7 +281,7 @@
                 playMusic();
             } else {
                 pauseMusic();
-                music.classList.add('manually-paused'); // Evita que se reactive sola
+                music.classList.add('manually-paused');
             }
         }
 
@@ -296,7 +289,7 @@
             music.play().then(() => {
                 playIcon.className = "fas fa-pause";
                 wave.classList.add('playing');
-            }).catch(e => console.log("Autoplay bloqueado por el navegador"));
+            }).catch(e => console.log("Autoplay bloqueado. Requiere interacción del usuario."));
         }
 
         function pauseMusic() {
