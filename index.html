@@ -13,7 +13,7 @@
             font-family: sans-serif;
         }
 
-        /* FONDO IDÉNTICO A LA GRÁFICA CON ONDAS NEÓN EN MOVIMIENTO */
+        /* FONDO EXCLUSIVO CON ONDAS NEÓN EN MOVIMIENTO */
         body {
             min-height: 100vh;
             display: flex;
@@ -26,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* Efecto de luces neón abstractas de fondo */
         body::before, body::after {
             content: '';
             position: absolute;
@@ -55,7 +54,6 @@
             100% { transform: translate(80px, 50px) scale(1.2); }
         }
 
-        /* CONTECO PRINCIPAL */
         .main-container {
             position: relative;
             z-index: 1;
@@ -63,7 +61,7 @@
             width: 100%;
         }
 
-        /* TITULO ESTILO CRISTAL BRILLANTE */
+        /* TITULO CON LETRAS BIEN GRUESAS */
         .top-banner {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
@@ -81,27 +79,26 @@
             font-size: 2.4rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            font-weight: 800;
+            font-weight: 900; /* Letras bien gruesas */
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .top-banner .subtitle {
-            color: #ffffff;
+            color: #00ffcc;
             font-size: 1.6rem;
-            font-weight: 700;
+            font-weight: 900; /* Letras bien gruesas */
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 5px;
         }
 
-        /* DISTRIBUCIÓN EN FILA */
         .row-content {
             display: flex;
             gap: 25px;
             width: 100%;
         }
 
-        /* SECCIÓN TRABAJO MASIVA */
+        /* CUADRO BOLSA DE TRABAJO CON ICONOS SENCILLOS */
         .work-section {
             flex: 1.7;
             background: rgba(255, 255, 255, 0.04);
@@ -116,7 +113,7 @@
         .requirements-large {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
         }
 
         .req-item-large {
@@ -125,26 +122,28 @@
             background: rgba(0, 0, 0, 0.15);
             padding: 15px 20px;
             border-radius: 15px;
-            border-left: 4px solid #ffffff;
+            border-left: 4px solid #00ffcc;
         }
 
         .req-icon {
-            font-size: 2rem;
-            color: #ffffff;
-            width: 45px;
+            font-size: 1.5rem;
+            color: #00ffcc;
+            width: 40px;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .req-text {
             color: #ffffff;
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-weight: 700;
             padding-left: 15px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        /* COLUMNA DERECHA */
         .right-column {
             flex: 1;
             display: flex;
@@ -152,7 +151,7 @@
             gap: 25px;
         }
 
-        /* CAJA WHATSAPP */
+        /* CAJA BOTÓN ENVIAR CV */
         .whatsapp-box {
             background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(20px);
@@ -168,29 +167,50 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #e4c5af; /* Tono pastel desértico como la gráfica */
-            color: #000000;
+            background: #25D366;
+            color: #ffffff;
             text-decoration: none;
             padding: 18px 25px;
             border-radius: 50px;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 800;
             width: 100%;
             transition: transform 0.2s;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
         }
 
         .btn-whatsapp-top i {
-            font-size: 1.5rem;
-            margin-right: 10px;
-            color: #25D366; /* Ícono de WhatsApp verde */
+            font-size: 1.7rem;
+            margin-right: 12px;
         }
 
         .btn-whatsapp-top:hover {
             transform: scale(1.02);
         }
 
-        /* CREDITO CAJA CON FOTO/GIF DE FONDO COMPLETO */
+        .btn-info-large {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+
+        .btn-info-large:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* SECCIÓN CRÉDITOS JULY3P */
         .ads-loan-box {
             position: relative;
             background-image: url('https://media.tenor.com/E8w96ZWeG-EAAAAC/pension-por-discapacidad-pesos-argentinos.gif');
@@ -204,10 +224,9 @@
             overflow: hidden;
             min-height: 280px;
             display: flex;
-            align-items: flex-end; /* Coloca el contenido abajo para dejar ver el rostro */
+            align-items: flex-end;
         }
 
-        /* Capa de degradado oscuro inferior para que el texto se lea impecable */
         .ads-loan-box::before {
             content: '';
             position: absolute;
@@ -226,8 +245,8 @@
         }
 
         .ads-loan-title {
-            color: #ffffff;
-            font-size: 1.6rem;
+            color: #ffd700;
+            font-size: 1.5rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -242,26 +261,25 @@
         }
 
         .btn-loan-action {
-            background: rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: #ffd700;
+            color: #000000;
+            border: none;
             padding: 14px 25px;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 700;
             width: 100%;
             cursor: pointer;
             text-transform: uppercase;
-            transition: background 0.2s;
+            transition: transform 0.2s;
+            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
         }
 
         .btn-loan-action:hover {
-            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
-        /* MODALES SISTEMA */
+        /* MODALES */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -322,22 +340,8 @@
             margin-bottom: 25px;
         }
 
-        .modal-info-text p {
-            margin-bottom: 12px;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0.5;
-        }
-
+        .modal-info-text p { margin-bottom: 12px; }
+        .close-modal { position: absolute; top: 15px; right: 15px; background: none; border: none; color: #ffffff; font-size: 1.5rem; cursor: pointer; opacity: 0.5; }
         .close-modal:hover { opacity: 1; }
 
         .btn-modal-whatsapp {
@@ -381,24 +385,49 @@
             color: #000000;
         }
 
-        .track-info {
-            color: #ffffff;
-            font-size: 0.85rem;
-        }
+        .track-info { color: #ffffff; font-size: 0.85rem; }
 
-        /* DISEÑO RESPONSIVE PARA CELULARES */
+        /* OPTIMIZACIÓN EXCLUSIVA PARA CELULARES (MÓVIL) */
         @media (max-width: 850px) {
             .row-content {
                 flex-direction: column;
+                gap: 15px;
+            }
+            .top-banner {
+                padding: 15px;
+                margin-bottom: 15px;
             }
             .top-banner h1 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
             .top-banner .subtitle {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+            }
+            .work-section {
+                padding: 20px 15px;
+            }
+            /* Junta todo reduciendo el margen y espaciado de los bloques */
+            .requirements-large {
+                gap: 10px;
+            }
+            .req-item-large {
+                padding: 10px 12px;
+                border-radius: 10px;
             }
             .req-text {
-                font-size: 1.05rem;
+                font-size: 0.95rem;
+                padding-left: 10px;
+            }
+            .req-icon {
+                font-size: 1.2rem;
+                width: 30px;
+            }
+            .whatsapp-box {
+                padding: 15px;
+            }
+            .btn-whatsapp-top {
+                font-size: 1.15rem;
+                padding: 14px 20px;
             }
             .audio-player {
                 left: 50%;
@@ -427,23 +456,23 @@
             <div class="work-section">
                 <div class="requirements-large">
                     <div class="req-item-large">
-                        <div class="req-icon">🔍</div>
+                        <div class="req-icon"><i class="fas fa-search"></i></div>
                         <div class="req-text">¿BUSCAS TRABAJO?</div>
                     </div>
                     <div class="req-item-large">
-                        <div class="req-icon">📍</div>
+                        <div class="req-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="req-text">¿SOS DE LA RIOJA?</div>
                     </div>
                     <div class="req-item-large">
-                        <div class="req-icon">📅</div>
+                        <div class="req-icon"><i class="fas fa-clock"></i></div>
                         <div class="req-text">¿TENES ENTRE 18 Y 33 AÑOS?</div>
                     </div>
                     <div class="req-item-large">
-                        <div class="req-icon">👥</div>
+                        <div class="req-icon"><i class="fas fa-users"></i></div>
                         <div class="req-text">ASISTENTES DE PRODUCCIÓN, LOGÍSTICA, ATENCIÓN AL CLIENTE</div>
                     </div>
                     <div class="req-item-large">
-                        <div class="req-icon">📄</div>
+                        <div class="req-icon"><i class="fas fa-paper-plane"></i></div>
                         <div class="req-text">ENVÍA TU CV A NUESTRA PLATAFORMA DE WHATSAPP O PORTAL DE EMPLEO</div>
                     </div>
                 </div>
@@ -453,8 +482,11 @@
                 
                 <div class="whatsapp-box">
                     <a href="https://wa.me/5493804677168?text=Hola%20FYF%20Eventos,%20quiero%20enviar%20mi%20CV%20para%20la%20búsqueda%20laboral." class="btn-whatsapp-top" target="_blank">
-                        <i class="fab fa-whatsapp"></i> WHATSAPP 3804677168
+                        <i class="fab fa-whatsapp"></i> ENVÍA TU CV
                     </a>
+                    <button class="btn-info-large" onclick="abrirModal('infoModal')">
+                        <i class="fas fa-info-circle"></i> Más información
+                    </button>
                 </div>
 
                 <div class="ads-loan-box">
@@ -469,6 +501,22 @@
 
             </div>
 
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="cerrarModal('infoModal')"><i class="fas fa-times"></i></button>
+            <div class="modal-title">Detalles del Puesto</div>
+            <div class="modal-info-text">
+                <p>• <strong>Pagos por hora:</strong> De $2.500 a $10.000 la hora por atención al público.</p>
+                <p>• Jóvenes buena presencia para atención al público.</p>
+                <p>• Trabajo eventual.</p>
+                <p>• Pagos en el día y sin vueltas.</p>
+            </div>
+            <a href="https://wa.me/5493804677168?text=Hola%20FYF%20Eventos,%20leí%20la%20información%20de%20los%20pagos%20y%20me%20interesa%20postularme." class="btn-modal-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+            </a>
         </div>
     </div>
 
