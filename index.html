@@ -13,220 +13,201 @@
             font-family: sans-serif;
         }
 
+        /* FONDO IDÉNTICO A LA GRÁFICA CON ONDAS NEÓN EN MOVIMIENTO */
         body {
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1d2671);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background: #0d1b2a;
+            position: relative;
             padding: 20px;
+            overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Efecto de luces neón abstractas de fondo */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 150, 255, 0.25) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0;
+            animation: floatLights 12s ease-in-out infinite alternate;
         }
 
-        /* Contenedor Principal en Grid para Pantallas Grandes */
+        body::after {
+            background: radial-gradient(circle, rgba(128, 0, 255, 0.15) 0%, rgba(0,0,0,0) 70%);
+            animation-delay: -6s;
+            right: -100px;
+            top: -100px;
+        }
+
+        body::before {
+            left: -100px;
+            bottom: -100px;
+        }
+
+        @keyframes floatLights {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(80px, 50px) scale(1.2); }
+        }
+
+        /* CONTECO PRINCIPAL */
         .main-container {
-            display: block;
+            position: relative;
+            z-index: 1;
             max-width: 1100px;
             width: 100%;
         }
 
-        /* Estructura para agrupar las secciones */
-        .grid-layout {
-            display: block;
-            width: 100%;
-        }
-
-        /* BANNER SUPERIOR DE TÍTULO */
+        /* TITULO ESTILO CRISTAL BRILLANTE */
         .top-banner {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 24px;
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            padding: 25px;
             text-align: center;
             margin-bottom: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3), inset 0 0 15px rgba(255,255,255,0.1);
         }
 
         .top-banner h1 {
             color: #ffffff;
-            font-size: 2.2rem;
-            letter-spacing: 2px;
+            font-size: 2.4rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 800;
-            margin-bottom: 5px;
-            text-shadow: 0 0 15px rgba(255,255,255,0.2);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .top-banner .subtitle {
-            color: #00ffcc;
-            font-size: 1.3rem;
-            font-weight: bold;
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            margin-top: 5px;
         }
 
-        /* CONTENEDOR DE FILA (TRABAJO + SECCIÓN DERECHA) */
+        /* DISTRIBUCIÓN EN FILA */
         .row-content {
-            display: table;
+            display: flex;
+            gap: 25px;
             width: 100%;
-            table-layout: fixed;
         }
 
-        /* SECCIÓN 1: OFERTA LABORAL DESTACADA (MASIVA) */
+        /* SECCIÓN TRABAJO MASIVA */
         .work-section {
-            display: table-cell;
-            width: 63%;
-            vertical-align: top;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            flex: 1.7;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 24px;
             padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .work-section h2 {
-            color: #00ffcc;
-            font-size: 1.6rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid rgba(0, 255, 204, 0.2);
-            padding-bottom: 10px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
         }
 
         .requirements-large {
-            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
         .req-item-large {
-            display: table;
-            width: 100%;
-            margin-bottom: 28px;
-        }
-
-        .req-item-large:last-child {
-            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 15px 20px;
+            border-radius: 15px;
+            border-left: 4px solid #ffffff;
         }
 
         .req-icon {
-            display: table-cell;
-            width: 50px;
-            vertical-align: middle;
-            color: #00ffcc;
             font-size: 2rem;
+            color: #ffffff;
+            width: 45px;
             text-align: center;
         }
 
         .req-text {
-            display: table-cell;
-            vertical-align: middle;
             color: #ffffff;
-            font-size: 1.4rem;
-            font-weight: 600;
+            font-size: 1.35rem;
+            font-weight: 700;
             padding-left: 15px;
-            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* SECCIÓN COLUMNA DERECHA (WHATSAPP + CRÉDITOS) */
+        /* COLUMNA DERECHA */
         .right-column {
-            display: table-cell;
-            width: 37%;
-            vertical-align: top;
-            padding-left: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        /* BLOQUE WHATSAPP PRINCIPAL */
+        /* CAJA WHATSAPP */
         .whatsapp-box {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
 
         .btn-whatsapp-top {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #25D366;
-            color: #ffffff;
+            background: #e4c5af; /* Tono pastel desértico como la gráfica */
+            color: #000000;
             text-decoration: none;
-            padding: 16px 25px;
+            padding: 18px 25px;
             border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-size: 1.25rem;
+            font-weight: 800;
             width: 100%;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s, background 0.2s;
+            transition: transform 0.2s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
         .btn-whatsapp-top i {
-            font-size: 1.6rem;
-            margin-right: 12px;
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #25D366; /* Ícono de WhatsApp verde */
         }
 
         .btn-whatsapp-top:hover {
-            background: #20ba5a;
-            transform: translateY(-2px);
+            transform: scale(1.02);
         }
 
-        .btn-info-large {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: bold;
-            width: 100%;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: background 0.2s;
-        }
-
-        .btn-info-large:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* TARJETA PUBLICIDAD DE CRÉDITOS CON GIF DE BACKGROUND */
+        /* CREDITO CAJA CON FOTO/GIF DE FONDO COMPLETO */
         .ads-loan-box {
             position: relative;
             background-image: url('https://media.tenor.com/E8w96ZWeG-EAAAAC/pension-por-discapacidad-pesos-argentinos.gif');
             background-size: cover;
             background-position: center;
-            border: 2px solid rgba(255, 215, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 24px;
-            padding: 35px 25px;
+            padding: 40px 25px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             overflow: hidden;
-            height: 250px;
+            min-height: 280px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            align-items: flex-end; /* Coloca el contenido abajo para dejar ver el rostro */
         }
 
-        /* Capa oscura interna para que se lea perfecto el texto sobre el GIF */
+        /* Capa de degradado oscuro inferior para que el texto se lea impecable */
         .ads-loan-box::before {
             content: '';
             position: absolute;
@@ -234,7 +215,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.65);
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%);
             z-index: 1;
         }
 
@@ -245,53 +226,50 @@
         }
 
         .ads-loan-title {
-            color: #ffd700;
-            font-size: 1.3rem;
+            color: #ffffff;
+            font-size: 1.6rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
         .ads-loan-amount {
             color: #ffffff;
             font-size: 2.2rem;
             font-weight: 900;
-            margin-bottom: 25px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            margin-bottom: 20px;
         }
 
         .btn-loan-action {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #ffd700;
-            color: #000000;
-            border: none;
-            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 14px 25px;
             border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            font-size: 1rem;
+            font-weight: 700;
             width: 100%;
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
             cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
+            text-transform: uppercase;
+            transition: background 0.2s;
         }
 
         .btn-loan-action:hover {
-            background: #e6c200;
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.3);
         }
 
-        /* --- VENTANAS EMERGENTES (MODALES) --- */
+        /* MODALES SISTEMA */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -308,64 +286,45 @@
         }
 
         .modal-content {
-            background: #101c26;
-            border-radius: 24px;
+            background: #0d1b2a;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
             padding: 35px 25px;
             max-width: 450px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
             transform: scale(0.8);
             transition: transform 0.3s ease;
             position: relative;
         }
-
-        #infoModal .modal-content { border: 2px solid rgba(0, 255, 204, 0.4); }
-        #loanModal .modal-content { border: 2px solid rgba(255, 215, 0, 0.4); }
 
         .modal-overlay.active .modal-content {
             transform: scale(1);
         }
 
         .modal-title {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 20px;
             text-transform: uppercase;
             font-weight: 800;
+            color: #ffffff;
         }
-
-        #infoModal .modal-title { color: #00ffcc; }
-        #loanModal .modal-title { color: #ffd700; }
 
         .modal-info-text {
             color: #ffffff;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             line-height: 1.6;
             text-align: left;
-            background: rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.05);
             padding: 20px;
-            border-radius: 16px;
+            border-radius: 12px;
             margin-bottom: 25px;
         }
 
         .modal-info-text p {
-            margin-bottom: 14px;
-            display: flex;
-            align-items: flex-start;
+            margin-bottom: 12px;
         }
-
-        .modal-info-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        .modal-info-text i {
-            margin-right: 14px;
-            margin-top: 4px;
-            font-size: 1.1rem;
-        }
-
-        #infoModal i { color: #00ffcc; }
-        #loanModal i { color: #ffd700; }
 
         .close-modal {
             position: absolute;
@@ -374,15 +333,12 @@
             background: none;
             border: none;
             color: #ffffff;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             cursor: pointer;
             opacity: 0.5;
         }
 
-        .close-modal:hover {
-            opacity: 1;
-            color: #ff4a4a;
-        }
+        .close-modal:hover { opacity: 1; }
 
         .btn-modal-whatsapp {
             display: inline-flex;
@@ -396,7 +352,6 @@
             font-size: 1.2rem;
             font-weight: bold;
             width: 100%;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
         }
 
         /* Reproductor Fijo */
@@ -404,18 +359,17 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0, 0, 0, 0.8);
             padding: 10px 20px;
             border-radius: 30px;
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             z-index: 10;
         }
 
         .play-btn {
-            background: #00ffcc;
+            background: #ffffff;
             border: none;
             width: 35px;
             height: 35px;
@@ -432,27 +386,19 @@
             font-size: 0.85rem;
         }
 
-        /* DISPOSITIVOS MÓVILES (ADAPTACIÓN COMPLETA) */
+        /* DISEÑO RESPONSIVE PARA CELULARES */
         @media (max-width: 850px) {
             .row-content {
-                display: block;
-            }
-            .work-section {
-                display: block;
-                width: 100%;
-                padding: 30px 20px;
-                margin-bottom: 20px;
-            }
-            .right-column {
-                display: block;
-                width: 100%;
-                padding-left: 0;
-            }
-            .req-text {
-                font-size: 1.15rem;
+                flex-direction: column;
             }
             .top-banner h1 {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
+            }
+            .top-banner .subtitle {
+                font-size: 1.2rem;
+            }
+            .req-text {
+                font-size: 1.05rem;
             }
             .audio-player {
                 left: 50%;
@@ -470,82 +416,59 @@
     </audio>
 
     <div class="main-container">
-        <div class="grid-layout">
-            
-            <div class="top-banner">
-                <h1>Oferta Laboral Destacada: FYF Eventos</h1>
-                <div class="subtitle">Bolsa de Trabajo</div>
-            </div>
+        
+        <div class="top-banner">
+            <h1>OFERTA LABORAL DESTACADA: FYF EVENTOS</h1>
+            <div class="subtitle">BOLSA DE TRABAJO</div>
+        </div>
 
-            <div class="row-content">
-                
-                <div class="work-section">
-                    <h2>Requisitos de la búsqueda</h2>
-                    <div class="requirements-large">
-                        <div class="req-item-large">
-                            <div class="req-icon"><i class="fas fa-search-plus"></i></div>
-                            <div class="req-text">¿BUSCAS TRABAJO?</div>
-                        </div>
-                        <div class="req-item-large">
-                            <div class="req-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div class="req-text">¿SOS DE LA RIOJA?</div>
-                        </div>
-                        <div class="req-item-large">
-                            <div class="req-icon"><i class="fas fa-user-clock"></i></div>
-                            <div class="req-text">¿TENES ENTRE 18 Y 33 AÑOS?</div>
-                        </div>
-                        <div class="req-item-large">
-                            <div class="req-icon"><i class="fas fa-users"></i></div>
-                            <div class="req-text">ASISTENTES DE PRODUCCIÓN, LOGÍSTICA, ATENCIÓN AL CLIENTE</div>
-                        </div>
-                        <div class="req-item-large">
-                            <div class="req-icon"><i class="fas fa-paper-plane"></i></div>
-                            <div class="req-text">ENVÍA TU CV A NUESTRA PLATAFORMA DE WHATSAPP O PORTAL DE EMPLEO</div>
-                        </div>
+        <div class="row-content">
+            
+            <div class="work-section">
+                <div class="requirements-large">
+                    <div class="req-item-large">
+                        <div class="req-icon">🔍</div>
+                        <div class="req-text">¿BUSCAS TRABAJO?</div>
+                    </div>
+                    <div class="req-item-large">
+                        <div class="req-icon">📍</div>
+                        <div class="req-text">¿SOS DE LA RIOJA?</div>
+                    </div>
+                    <div class="req-item-large">
+                        <div class="req-icon">📅</div>
+                        <div class="req-text">¿TENES ENTRE 18 Y 33 AÑOS?</div>
+                    </div>
+                    <div class="req-item-large">
+                        <div class="req-icon">👥</div>
+                        <div class="req-text">ASISTENTES DE PRODUCCIÓN, LOGÍSTICA, ATENCIÓN AL CLIENTE</div>
+                    </div>
+                    <div class="req-item-large">
+                        <div class="req-icon">📄</div>
+                        <div class="req-text">ENVÍA TU CV A NUESTRA PLATAFORMA DE WHATSAPP O PORTAL DE EMPLEO</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="right-column">
-                    
-                    <div class="whatsapp-box">
-                        <a href="https://wa.me/5493804677168?text=Hola%20FYF%20Eventos,%20quiero%20enviar%20mi%20CV%20para%20la%20búsqueda%20laboral." class="btn-whatsapp-top" target="_blank">
-                            <i class="fab fa-whatsapp"></i> WHATSAPP 3804677168
-                        </a>
-                        <button class="btn-info-large" onclick="abrirModal('infoModal')">
-                            <i class="fas fa-info-circle"></i> Más información
+            <div class="right-column">
+                
+                <div class="whatsapp-box">
+                    <a href="https://wa.me/5493804677168?text=Hola%20FYF%20Eventos,%20quiero%20enviar%20mi%20CV%20para%20la%20búsqueda%20laboral." class="btn-whatsapp-top" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WHATSAPP 3804677168
+                    </a>
+                </div>
+
+                <div class="ads-loan-box">
+                    <div class="ads-loan-content">
+                        <div class="ads-loan-title">CREDITOS PERSONALES</div>
+                        <div class="ads-loan-amount">HASTA $3.000.000</div>
+                        <button class="btn-loan-action" onclick="abrirModal('loanModal')">
+                            QUIERO MI PRESTAMO
                         </button>
                     </div>
-
-                    <div class="ads-loan-box">
-                        <div class="ads-loan-content">
-                            <div class="ads-loan-title">CREDITOS PERSONALES</div>
-                            <div class="ads-loan-amount">HASTA $3.000.000</div>
-                            <button class="btn-loan-action" onclick="abrirModal('loanModal')">
-                                QUIERO MI PRESTAMO
-                            </button>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
 
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="infoModal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="cerrarModal('infoModal')"><i class="fas fa-times"></i></button>
-            <div class="modal-title">Detalles del Puesto</div>
-            <div class="modal-info-text">
-                <p><i class="fas fa-money-bill-wave"></i> <span><strong>Pagos por hora:</strong> De $2.500 a $10.000 la hora por atención al público.</span></p>
-                <p><i class="fas fa-user-check"></i> <span>Jóvenes buena presencia para atención al público.</span></p>
-                <p><i class="fas fa-calendar-alt"></i> <span>Trabajo eventual.</span></p>
-                <p><i class="fas fa-bolt"></i> <span>Pagos en el día y sin vueltas.</span></p>
-            </div>
-            <a href="https://wa.me/5493804677168?text=Hola%20FYF%20Eventos,%20leí%20la%20información%20de%20los%20pagos%20y%20me%20interesa%20postularme." class="btn-modal-whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-            </a>
         </div>
     </div>
 
@@ -554,12 +477,12 @@
             <button class="close-modal" onclick="cerrarModal('loanModal')"><i class="fas fa-times"></i></button>
             <div class="modal-title">Tu Préstamo en el Acto</div>
             <div class="modal-info-text">
-                <p><i class="fas fa-check-circle"></i> <span>Préstamos con garantía en el acto.</span></p>
-                <p><i class="fas fa-times-circle"></i> <span>Sin recibo de sueldo.</span></p>
-                <p><i class="fas fa-id-card"></i> <span>Apto Veraz y apto Clearing / Equifax.</span></p>
-                <p><i class="fas fa-star"></i> <span>Rápido y sin vueltas.</span></p>
+                <p>• Préstamos con garantía en el acto.</p>
+                <p>• Sin recibo de sueldo.</p>
+                <p>• Apto Veraz y apto Clearing / Equifax.</p>
+                <p>• Rápido y sin vueltas.</p>
             </div>
-            <a href="https://wa.me/5493804677168?text=Quiero%20mi%20pr%C3%A9stamo" class="btn-modal-whatsapp" style="background:#25D366;" target="_blank">
+            <a href="https://wa.me/5493804677168?text=Quiero%20mi%20pr%C3%A9stamo" class="btn-modal-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> Quiero mi préstamo
             </a>
         </div>
@@ -576,12 +499,11 @@
         const reproductor = document.getElementById('audioTrack');
         const icono = document.getElementById('btnIcon');
 
-        // Activación de música al clickear en la web
         document.body.addEventListener('click', () => {
             if (reproductor.paused && !reproductor.classList.contains('pausa-manual')) {
                 reproductor.play().then(() => {
                     icono.className = "fas fa-pause";
-                }).catch(e => console.log("Permiso de audio retenido"));
+                }).catch(e => console.log("Audio listo"));
             }
         }, { once: true });
 
@@ -596,7 +518,6 @@
             }
         }
 
-        // Sistema dinámico de Modales
         function abrirModal(idModal) {
             document.getElementById(idModal).classList.add('active');
         }
