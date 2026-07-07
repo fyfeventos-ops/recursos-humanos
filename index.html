@@ -26,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* Capa para la marca de agua del Gif 1.gif */
         body::before {
             content: '';
             position: fixed;
@@ -37,7 +36,7 @@
             background-image: url('Gif 1.gif');
             background-size: cover;
             background-position: center;
-            opacity: 0.04; /* Ajuste sutil para el estilo marca de agua */
+            opacity: 0.04;
             pointer-events: none;
             z-index: 0;
         }
@@ -87,7 +86,6 @@
             width: 100%;
         }
 
-        /* BANNER DE TITULO MÁXIMO GROSOR */
         .top-banner {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
@@ -142,13 +140,23 @@
             gap: 20px;
         }
 
+        /* ÍTEMS CONVERTIDOS EN BOTONES INTERACTIVOS */
         .req-item-large {
             display: flex;
             align-items: center;
             background: rgba(0, 0, 0, 0.25);
-            padding: 15px 20px;
+            padding: 18px 20px;
             border-radius: 15px;
             border-left: 4px solid #00ffcc;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .req-item-large:hover {
+            background: rgba(0, 255, 204, 0.1);
+            transform: translateX(5px);
+            border-left: 6px solid #00ffcc;
         }
 
         .req-icon {
@@ -168,6 +176,22 @@
             padding-left: 15px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        .work-gifs-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        .work-gifs-container img {
+            width: 48%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .right-column {
@@ -205,11 +229,6 @@
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
         }
 
-        .btn-whatsapp-top i {
-            font-size: 1.7rem;
-            margin-right: 12px;
-        }
-
         .btn-whatsapp-top:hover {
             transform: scale(1.02);
         }
@@ -234,23 +253,6 @@
 
         .btn-info-large:hover {
             background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* CONTENEDOR DE GIFS BAJO EL BOTÓN MÁS INFORMACIÓN */
-        .work-gifs-container {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .work-gifs-container img {
-            width: 48%;
-            height: 110px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         /* SECCIÓN CRÉDITOS LIMPIA */
@@ -313,7 +315,7 @@
             transform: translateY(-2px);
         }
 
-        /* MODALES */
+        /* MODALES / FORMULARIOS FLOJOS */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -341,7 +343,7 @@
             background: #0d1b2a;
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            padding: 35px 25px;
+            padding: 30px 25px;
             max-width: 450px;
             width: 100%;
             text-align: center;
@@ -356,12 +358,98 @@
         }
 
         .modal-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
             text-transform: uppercase;
             font-weight: 800;
-            color: #ffffff;
+            color: #00ffcc;
         }
+
+        /* ELEMENTOS DE FORMULARIO DENTRO DE LOS MODALES */
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            color: #ffffff;
+            display: block;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #00ffcc;
+        }
+
+        /* Estilo para inputs de archivo (Cámara / Fotos) */
+        .file-input-wrapper {
+            position: relative;
+            background: rgba(255,255,255,0.05);
+            border: 1px dashed rgba(255,255,255,0.3);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-input-wrapper i {
+            font-size: 1.5rem;
+            color: #00ffcc;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .close-modal { position: absolute; top: 15px; right: 15px; background: none; border: none; color: #ffffff; font-size: 1.5rem; cursor: pointer; opacity: 0.5; }
+        .close-modal:hover { opacity: 1; }
+
+        .btn-submit-job {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #25D366;
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+        }
+
+        .btn-submit-job i { margin-right: 8px; font-size: 1.3rem; }
 
         .modal-info-text {
             color: #ffffff;
@@ -373,26 +461,8 @@
             border-radius: 12px;
             margin-bottom: 25px;
         }
-
         .modal-info-text p { margin-bottom: 12px; }
-        .close-modal { position: absolute; top: 15px; right: 15px; background: none; border: none; color: #ffffff; font-size: 1.5rem; cursor: pointer; opacity: 0.5; }
-        .close-modal:hover { opacity: 1; }
 
-        .btn-modal-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #25D366;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            width: 100%;
-        }
-
-        /* REPRODUCTOR FIJO */
         .audio-player {
             position: fixed;
             bottom: 20px;
@@ -421,56 +491,20 @@
 
         .track-info { color: #ffffff; font-size: 0.85rem; }
 
-        /* OPTIMIZACIÓN MÓVIL */
         @media (max-width: 850px) {
-            .row-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .top-banner {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-            .top-banner h1 {
-                font-size: 1.5rem;
-            }
-            .top-banner .subtitle {
-                font-size: 1.1rem;
-            }
-            .work-section {
-                padding: 20px 15px;
-            }
-            .requirements-large {
-                gap: 10px;
-            }
-            .req-item-large {
-                padding: 10px 12px;
-                border-radius: 10px;
-            }
-            .req-text {
-                font-size: 0.95rem;
-                padding-left: 10px;
-            }
-            .req-icon {
-                font-size: 1.2rem;
-                width: 30px;
-            }
-            .whatsapp-box {
-                padding: 15px;
-            }
-            .btn-whatsapp-top {
-                font-size: 1.15rem;
-                padding: 14px 20px;
-            }
-            .work-gifs-container img {
-                height: 85px;
-            }
-            .audio-player {
-                left: 50%;
-                transform: translateX(-50%);
-                right: auto;
-                bottom: 15px;
-            }
+            .row-content { flex-direction: column; gap: 15px; }
+            .top-banner { padding: 15px; margin-bottom: 15px; }
+            .top-banner h1 { font-size: 1.5rem; }
+            .top-banner .subtitle { font-size: 1.1rem; }
+            .work-section { padding: 20px 15px; }
+            .requirements-large { gap: 10px; }
+            .req-item-large { padding: 14px 15px; border-radius: 10px; }
+            .req-text { font-size: 1rem; padding-left: 10px; }
+            .req-icon { font-size: 1.2rem; width: 30px; }
+            .whatsapp-box { padding: 15px; }
+            .btn-whatsapp-top { font-size: 1.15rem; padding: 14px 20px; }
+            .work-gifs-container img { height: 85px; }
+            .audio-player { left: 50%; transform: translateX(-50%); right: auto; bottom: 15px; }
         }
     </style>
 </head>
@@ -493,26 +527,31 @@
             
             <div class="work-section">
                 <div class="requirements-large">
-                    <div class="req-item-large">
-                        <div class="req-icon"><i class="fas fa-search"></i></div>
-                        <div class="req-text">¿BUSCAS TRABAJO?</div>
+                    <div class="req-item-large" onclick="abrirModal('modalDomestica')">
+                        <div class="req-icon"><i class="fas fa-home"></i></div>
+                        <div class="req-text">Empleada domestica</div>
                     </div>
-                    <div class="req-item-large">
-                        <div class="req-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="req-text">¿SOS DE LA RIOJA?</div>
+                    <div class="req-item-large" onclick="abrirModal('modalPublico')">
+                        <div class="req-icon"><i class="fas fa-bullhorn"></i></div>
+                        <div class="req-text">Atencion al Publico</div>
                     </div>
-                    <div class="req-item-large">
-                        <div class="req-icon"><i class="fas fa-clock"></i></div>
-                        <div class="req-text">¿TENES ENTRE 18 Y 33 AÑOS?</div>
+                    <div class="req-item-large" onclick="abrirModal('modalProfesional')">
+                        <div class="req-icon"><i class="fas fa-user-tie"></i></div>
+                        <div class="req-text">Profesional</div>
                     </div>
-                    <div class="req-item-large">
-                        <div class="req-icon"><i class="fas fa-users"></i></div>
-                        <div class="req-text">ASISTENTES DE PRODUCCIÓN, LOGÍSTICA, ATENCIÓN AL CLIENTE</div>
+                    <div class="req-item-large" onclick="abrirModal('modalDelivery')">
+                        <div class="req-icon"><i class="fas fa-motorcycle"></i></div>
+                        <div class="req-text">Delivery</div>
                     </div>
-                    <div class="req-item-large">
-                        <div class="req-icon"><i class="fas fa-paper-plane"></i></div>
-                        <div class="req-text">ENVÍA TU CV A NUESTRA PLATAFORMA DE WHATSAPP O PORTAL DE EMPLEO</div>
+                    <div class="req-item-large" onclick="abrirModal('modalOtro')">
+                        <div class="req-icon"><i class="fas fa-ellipsis-h"></i></div>
+                        <div class="req-text">OTRO</div>
                     </div>
+                </div>
+
+                <div class="work-gifs-container">
+                    <img src="foto 2.gif" alt="Info Trabajo 1">
+                    <img src="gif 3.gif" alt="Info Trabajo 2">
                 </div>
             </div>
 
@@ -525,11 +564,6 @@
                     <button class="btn-info-large" onclick="abrirModal('infoModal')">
                         <i class="fas fa-info-circle"></i> Más información
                     </button>
-
-                    <div class="work-gifs-container">
-                        <img src="foto 2.gif" alt="Info Trabajo 1">
-                        <img src="gif 3.gif" alt="Info Trabajo 2">
-                    </div>
                 </div>
 
                 <div class="ads-loan-box">
@@ -544,6 +578,103 @@
 
             </div>
 
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalDomestica">
+        <div class="modal-content">
+            <button class="close-modal" onclick="cerrarModal('modalDomestica')"><i class="fas fa-times"></i></button>
+            <div class="modal-title">Postulación: Empleada Doméstica</div>
+            <div class="form-group">
+                <label for="dniDomestica">Ingrese su DNI:</label>
+                <input type="number" id="dniDomestica" placeholder="Ej: 38123456">
+            </div>
+            <button class="btn-submit-job" onclick="enviarDomestica()">
+                <i class="fab fa-whatsapp"></i> Solicitar Entrevista
+            </button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalPublico">
+        <div class="modal-content">
+            <button class="close-modal" onclick="cerrarModal('modalPublico')"><i class="fas fa-times"></i></button>
+            <div class="modal-title">Postulación: Atención al Público</div>
+            <div class="form-group">
+                <label for="dniPublico">DNI:</label>
+                <input type="number" id="dniPublico" placeholder="Ej: 38123456">
+            </div>
+            <div class="form-group">
+                <label for="edadPublico">Edad:</label>
+                <input type="number" id="edadPublico" placeholder="Ej: 25">
+            </div>
+            <div class="form-group">
+                <label>Subir o Sacar Foto de Perfil:</label>
+                <div class="file-input-wrapper">
+                    <i class="fas fa-camera"></i>
+                    <span>Toca aquí para seleccionar o tomar foto</span>
+                    <input type="file" id="fotoPublico" accept="image/*" capture="user">
+                </div>
+            </div>
+            <button class="btn-submit-job" onclick="enviarPublico()">
+                <i class="fab fa-whatsapp"></i> Enviar Información
+            </button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalProfesional">
+        <div class="modal-content">
+            <button class="close-modal" onclick="cerrarModal('modalProfesional')"><i class="fas fa-times"></i></button>
+            <div class="modal-title">Postulación: Profesional</div>
+            <div class="form-group">
+                <label for="areaProfesional">Área o Especialidad:</label>
+                <input type="text" id="areaProfesional" placeholder="Ej: Abogado, Contador, Ingeniero">
+            </div>
+            <button class="btn-submit-job" onclick="enviarProfesional()">
+                <i class="fab fa-whatsapp"></i> Enviar Postulación
+            </button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalDelivery">
+        <div class="modal-content">
+            <button class="close-modal" onclick="cerrarModal('modalDelivery')"><i class="fas fa-times"></i></button>
+            <div class="modal-title">Postulación: Delivery</div>
+            <div class="form-group">
+                <label for="movilidad">Medio de Movilidad:</label>
+                <select id="movilidad">
+                    <option value="Moto">Moto</option>
+                    <option value="Auto">Auto</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="patente">Patente del Vehículo:</label>
+                <input type="text" id="patente" placeholder="Ej: AB123CD o AAA123">
+            </div>
+            <div class="form-group">
+                <label>Foto de Carnet de Conducir:</label>
+                <div class="file-input-wrapper">
+                    <i class="fas fa-id-card"></i>
+                    <span>Toca aquí para fotografiar carnet</span>
+                    <input type="file" id="carnetDelivery" accept="image/*" capture="environment">
+                </div>
+            </div>
+            <button class="btn-submit-job" onclick="enviarDelivery()">
+                <i class="fab fa-whatsapp"></i> Enviar Datos por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOtro">
+        <div class="modal-content">
+            <button class="close-modal" onclick="cerrarModal('modalOtro')"><i class="fas fa-times"></i></button>
+            <div class="modal-title">Postulación: Otro Puesto</div>
+            <div class="form-group">
+                <label for="detalleOtro">Contanos qué puesto buscas o tu propuesta:</label>
+                <textarea id="detalleOtro" rows="4" placeholder="Escribe aquí..."></textarea>
+            </div>
+            <button class="btn-submit-job" onclick="enviarOtro()">
+                <i class="fab fa-whatsapp"></i> Enviar Mensaje
+            </button>
         </div>
     </div>
 
@@ -589,6 +720,7 @@
     <script>
         const reproductor = document.getElementById('audioTrack');
         const icono = document.getElementById('btnIcon');
+        const NUMERO_TELEFONO = "5493804677168";
 
         document.body.addEventListener('click', () => {
             if (reproductor.paused && !reproductor.classList.contains('pausa-manual')) {
@@ -622,6 +754,54 @@
                 e.target.classList.remove('active');
             }
         });
+
+        /* FUNCIONES DE ENVÍO ESPECÍFICAS PARA CADA FORMULARIO */
+        function enviarDomestica() {
+            const dni = document.getElementById('dniDomestica').value;
+            if(!dni) return alert("Por favor ingresá tu DNI");
+            
+            const texto = `Hola, quiero enviar mi solicitud de entrevista para el puesto de Empleada Doméstica. Mi DNI es: ${dni}.`;
+            window.open(`https://wa.me/${NUMERO_TELEFONO}?text=${encodeURIComponent(texto)}`, '_blank');
+            cerrarModal('modalDomestica');
+        }
+
+        function enviarPublico() {
+            const dni = document.getElementById('dniPublico').value;
+            const edad = document.getElementById('edadPublico').value;
+            if(!dni || !edad) return alert("Por favor completá el DNI y la Edad");
+            
+            const texto = `Hola, me postulo para Atención al Público.\n- DNI: ${dni}\n- Edad: ${edad} años.\n(Procedo a adjuntar mi foto de perfil a continuación en este chat).`;
+            window.open(`https://wa.me/${NUMERO_TELEFONO}?text=${encodeURIComponent(texto)}`, '_blank');
+            cerrarModal('modalPublico');
+        }
+
+        function enviarProfesional() {
+            const area = document.getElementById('areaProfesional').value;
+            if(!area) return alert("Por favor indicá tu Área o Especialidad");
+            
+            const texto = `Hola, me postulo para el área Profesional en el sector de: ${area}.`;
+            window.open(`https://wa.me/${NUMERO_TELEFONO}?text=${encodeURIComponent(texto)}`, '_blank');
+            cerrarModal('modalProfesional');
+        }
+
+        function enviarDelivery() {
+            const movilidad = document.getElementById('movilidad').value;
+            const patente = document.getElementById('patente').value;
+            if(!patente) return alert("Por favor escribí la patente de tu vehículo");
+            
+            const texto = `Hola, me postulo para Delivery.\n- Medio: ${movilidad}\n- Patente: ${patente}\n(Procedo a adjuntar la foto de mi carnet de conducir en este chat).`;
+            window.open(`https://wa.me/${NUMERO_TELEFONO}?text=${encodeURIComponent(texto)}`, '_blank');
+            cerrarModal('modalDelivery');
+        }
+
+        function enviarOtro() {
+            const detalle = document.getElementById('detalleOtro').value;
+            if(!detalle) return alert("Por favor completá el espacio con tu propuesta");
+            
+            const texto = `Hola, me contacto por una propuesta laboral alternativa:\n${detalle}`;
+            window.open(`https://wa.me/${NUMERO_TELEFONO}?text=${encodeURIComponent(texto)}`, '_blank');
+            cerrarModal('modalOtro');
+        }
     </script>
 
 </body>
